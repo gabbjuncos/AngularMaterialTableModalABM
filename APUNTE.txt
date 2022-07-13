@@ -1,0 +1,377 @@
+history -c command
+
+git config --global user.name "Tu nombre"
+git config --global user.email "Tu correo"
+
+para cerrar sesion
+git config --global --unset user.email "colocar email"
+
+git config --global --list
+
+
+___________________________
+
+para instalar el angular material use
+
+npm install --save @angular/material @angular/cdk @angular/animations
+ng add @angular/material
+
+y pegamos lo del toolbar en el html component
+ lo que tire en rojo hay que ir imporrtando en el app.module
+es decir cada componente de agular material
+
+se importa en el module 
+par ael toolbar y los iconos
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+import {MatIconModule} from '@angular/material/icon';
+
+se importa el moduelo del boton tambien
+
+import {MatButtonModule} from '@angular/material/button';
+
+en la seccion API se ve lo que se quiere importar 
+
+en el css de toolbar se ve la clase para que se tire para la derecha
+
+para ver iconos se ve en la pagina
+
+https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
+
+y solo se copia el nombre del que quiera y lo pego donde quiero en el html
+
+y lo pego en el menu para cambiar el icono por ese
+
+
+los modals son los dialog box en material buscarlo asi 
+
+en dialog y ver api para importar lo que necesito
+
+import {MatDialogModule} from '@angular/material/dialog';
+
+se agrega el envento en el boton para que abra el modal
+
+https://material.angular.io/components/dialog/examples
+
+en la doc, en la parte del ts se ve que necesita importar
+
+hay que generar un dialog
+
+ng g c dialog 
+
+y se agrega el codigo para la funcion openDialog
+en el app component ts
+
+se importa el modulo MatDialog
+
+import {MatDialog} from '@angular/material/dialog';
+
+y se lo inyecta en el constructor en el private
+
+y en el open dialog se llama el componente dialog
+
+luego en componente dialog ts
+se agrega al div la propiedad mat-dialog-content
+
+tambien agrega para usar los forms de material, copia alguno de ahi
+y lo pego en el html del div
+
+del form field
+
+se importa el modulo
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+y declara en el app module en declarations DialogComponent
+
+
+ver  que el model input tambien hay que importar algo para que se vea 
+como esta en el ejemplo, en la parte de doc buscar el input
+se importa y se ve con el mismo estilo del ejemplo
+
+import {MatInputModule} from '@angular/material/input';
+
+se crear un archivo en el componet llamado dialog.component.scss
+
+para darle estilo a la propiedad del boton ancho, es para que todos los inputs
+sean iguales en ancho y se le agrege esa propiedad solamente
+al componente mat-form-field
+
+
+import {MatSelectModule} from '@angular/material/select';
+
+para que se vean el input con opciones
+
+para usar calendario en el mat-form
+en la doc ver Datepicker
+
+usa el que toma un solo valor 
+es el primer del overview
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+y hay que importar tambien el MatNativeDateModule de angular/material/core
+
+import {MatNativeDateModule} from '@angular/material/core'
+
+se agrega tambien grupo de botones radio
+
+en el dialog componen ts se agrega las opciones en una lista
+en un radio group se se agregan los radio botones
+se agrega
+se recorrer la lista y se crea los botones radio
+
+se importa el radioboton de la doc
+
+par que se vea vertical las opciones 
+se las saca de la doc, de los ejemplos
+se agrega esas clases y en el css se copia del ejemplo y se pega
+
+
+se agrega al final el dialog accion con los botones cancelar y save
+
+hay que enlazar el styleUrls 
+al scss para las clases definidas en el dialog
+y de esa forma sale  vertical
+
+
+para hacer el formulario reactivo con losvalores cargadss en el 
+modal
+
+se define un formularo tipo FormGroup en el dialog component ts
+
+y se importan tambien el formGroup, El formBuilder y el validators
+
+y se inyecta el formBuilder en el constructor
+
+en el ngOnInit se crea arma el formulario productForm definido
+se le agrega cada campo con las validasiones correspondientes
+no hace falta ponerle el tipo de cada dato
+
+la logica es que se define un FormGroup 
+y luego en constructur se inyecta un FormBuilder
+
+luego en el ngOnInit se llama al formulario group 
+y le le aplica el formBuilder, armando el grupo y ahi se 
+definen cada uno de los campos del formulario
+
+y en el html se define el form con la propiedad action
+y ahi adentro se copia y pega todos los campos que se fueron creando
+
+y se le die que el formGrup va a ser igual 
+al product form
+[formGroup] = "productForm"
+
+hay que importar el reactive form model en el app.module
+
+ReactiveFormsModule
+el productForm es el formulario que defini en la parte de del ts
+y el [formGroup] seria del html
+
+ahora tengo que enlazar los valores de el html para el productForm
+agregando en cada input el form Controler y le paso el nombre
+que defindi para los campos del ProductForm
+
+tiene que hacer match cada uno de los campos del html con los 
+del prodcutform
+
+luego hay que hacer el bindig
+al precionar el boton
+
+quede en min 50:56
+
+https://www.youtube.com/watch?v=jGbP620NahE
+
+https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
+https://angular.io/api/platform-browser/animations/BrowserAnimationsModule
+https://material.angular.io/components/radio/examples
+
+
+
+en el boton save se agrega la propiedad (click)="nombre del metodo del component ts"
+
+para ver en el ts 
+en la funcion delclick del html
+para ver los valores del form
+
+console.log(this.productForm.value)
+
+
+para instalar un json server
+
+npm install -g json-server
+
+para ejecutarlo
+
+json-server --watch db.json
+
+para ver el la url
+https://localhosts.mobi/3000
+
+http://localhost:3000/posts
+
+en el archivo
+db.json
+se ven los los objetos que devuelve el servidor con post
+ahi se pueden definir el listado de productos en formato json
+
+y si en la direccion del json server
+veo lo que le puedo consultar
+
+se crear un servicio llamado api para la conexion con los datos
+y lo crea en la carpeta services
+
+ng g s services/api
+
+se inyecta en el contructo el http client
+
+se agrega el modulo para usar http module en el app module ts
+HttpClientModule
+
+se define el metodo post en el service
+
+postProduct en el service components
+
+y el metodo getProduct
+
+y el el dialog component tambien se inyecta el service craedo es decir el service api ts
+
+y en el metodo add Product de dialog ts , se hace llama el metodo del service para hacer posteo
+hay que suscribirlo 
+y es un observer
+entonces tiene 2 secciones un next para el caso de que todo salga bien
+y otra para el caso de que salga algun error
+
+se tendria que ver lo que se agrrgo en el server json
+
+se agrega el modulo de la libreria material para mostrar algun mensaje , y hay que inyectarlo en el constructor de dialog ts
+
+private dialogReg: MatDialogRef<DialogComponent>
+entre <> el tipo del componente
+
+despues del alert exitoso
+se resetea le form y se cierra el modal dialog
+
+en el res va el tipo any por que va a el tipo, seria mejor indicar la interfaz
+
+al refrescar la url del servidor json
+se agrega el elemento y el id se genera de forma automatica
+
+________________
+
+
+implementacion de la tabla
+con los registros y botones modal para cada una de las filas
+
+en el app comonente se define el metodo para traer todos los productos
+hay que inyectar el ApiService
+
+y se crea el metodo , usando el de api service para el get
+
+luego en el ngOnit de app component
+se llama a ese metodo para que siempre apenas carga la pagina
+muestre el listado
+
+se importa la tabla de material, en app module
+
+en el html se copia todo y se pega en e app componet html
+
+se importan lo necesario 
+en el app component ts
+
+se ve que dejabo de la clase 
+hay que agregar los decoradores
+ver que el userData va en el MatTableDataSource para el tipo de datos pero no se usa 
+y lo pone como any y con el ! para indicar que lo tome igual al poner any 
+
+y en los decoradores tambien mete ! para no indicar le tipo
+
+en la propiedad displayed columns meto el encabezado de la tabla 
+las columnas que quiero mostrar
+
+a la propiedad definida data sorce 
+le asigna el metodo del service get para obtener los productos
+y se le asigna a la propiedad dataSource
+y tambien se le asina al data source los valores para el paginator y el sort para la busqueda
+
+luego se aplica define el metodo del event del html
+y se lo coloca en el app component ts
+
+applyFilter
+(keyup)="applyFilter($event)"
+
+ver en el menu de doc lo de paginator
+es un modulo asi que hay que importalo
+en el module
+
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+el sortheader tambien es un modulo asi que se importa 
+
+import {MatSortModule} from '@angular/material/sort'
+
+y por ultimo en el html
+en los elementos de la tabla
+hay que cambiar el matColumnDef por el nombre de lo que tengo la 
+propiedad con el listado de columnas tal cual el mismo
+
+y le agrega la clase al css app compnentes scss
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+en el css no anda asi que  tiene que se sccs
+
+y se agrega pipes a los campos de la tabla
+hay que meter en un div para pasarle la clase container
+
+
+
+se agrega una columna mas en la propiedad donde tiene el nobre de cada columna
+
+y en el html se lo agrega 
+como una columna mas
+
+para se le agrega el evento click a cada boton editar y borrar
+y se lepasa como parametro el row osea la fila en el html
+
+y se define las funciones en el appcomponete ts
+se utiliza el mismo componente dialog que ya se creo para registrar se reutiliza
+
+abre el mismo modal pero funcionan los botones tambien eso esta mal
+
+se llama al obj dialoy y se llama el metodo open pasandole el dialog component
+
+hay que importar el MAT_DIALOG_DATA de material dialog
+y se lo inyecta en el constructor
+
+@Inject(MAT_DIALOG_DATA) public editData:any 
+en el dialog componente ts
+
+y en el ngOnInit se llama a l editData para ver qie trae
+
+en el ngOinit se hace la pregunta si editData es true
+entonces asocia al formulario product forma los valores del editData
+
+se lo hace con cada valor del formulario 
+
+como el boton save y edit en el formulario van a ser lo mismo
+se  crear una propiedad para ponerle el nombre del boton y mostrar ese nombre
+en base de donde se accede a ese formulario
+si es por el boton add product o si es por la tabla
+
+si entra al if se cambia el nombre del boton
+
+ahora hay que hacer una validacion en el addProduct porque 
+si le doy a editar una fila y le dot en update, se estaria registrando uno nuevo
+si bien es el mismo metodo, pero en el edit se debe registrar sobre el mismo y
+no crear uno nuevo
+
+se crea el metodo updateProduct y en service se debe crear el metodo put
+
+en el metodo put se debe pasar los nuevos datos del formulario y el id
+
+y tambien el delete
+
+13.35

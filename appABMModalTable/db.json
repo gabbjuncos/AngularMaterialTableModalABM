@@ -1,0 +1,77 @@
+{
+  "productList": [
+    {
+      "productName": "NARANJA",
+      "category": "Fruits",
+      "freshness": "Brand New",
+      "price": 100,
+      "comment": "Esto es una naranja\n",
+      "date": "2022-07-13T03:00:00.000Z",
+      "id": 1
+    },
+    {
+      "productName": "MANZANA",
+      "category": "Fruits",
+      "freshness": "Brand New",
+      "price": 150,
+      "comment": "FRUTA ",
+      "date": "2022-07-11T03:00:00.000Z",
+      "id": 2
+    },
+    {
+      "productName": "mango",
+      "category": "Fruits",
+      "freshness": "Second Hand",
+      "price": 3000,
+      "comment": "otra fruta",
+      "date": "2022-07-03T03:00:00.000Z",
+      "id": 3
+    },
+    {
+      "productName": "COMPUTADORA",
+      "category": "Electronic",
+      "freshness": "Refurbished",
+      "price": 100000,
+      "comment": "UNA COMPUTADORA",
+      "date": "2022-07-26T03:00:00.000Z",
+      "id": 4
+    },
+    {
+      "productName": "tomate",
+      "category": "Vegetables",
+      "freshness": "Refurbished",
+      "price": 20,
+      "comment": "tomates",
+      "date": "2022-07-28T03:00:00.000Z",
+      "id": 5
+    },
+    {
+      "productName": "NARANJA",
+      "category": "Fruits",
+      "freshness": "Brand New",
+      "price": 100,
+      "comment": "Esto es una naranja\n",
+      "date": "2022-07-13T03:00:00.000Z",
+      "id": 6
+    },
+    {
+      "productName": "tomate",
+      "category": "Vegetables",
+      "freshness": "Refurbished",
+      "price": 20,
+      "comment": "tomates",
+      "date": "2022-07-28T03:00:00.000Z",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
