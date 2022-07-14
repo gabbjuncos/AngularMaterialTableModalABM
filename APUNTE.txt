@@ -374,4 +374,17 @@ en el metodo put se debe pasar los nuevos datos del formulario y el id
 
 y tambien el delete
 
-13.35
+_______________________
+
+para actualizar luego de cerrar el modal
+luego del open del metodo opendialog
+se usa el metodo
+ 
+.afterClosed().suscribe(val=> {
+if(val==='save'){
+	this.getAllProducts();
+}})
+
+se crea el metodo para hacer el delete en el app components ts
+
+en el dialog no, porque el boton delte esta en el app component ts

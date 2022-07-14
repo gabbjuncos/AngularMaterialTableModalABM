@@ -37,6 +37,10 @@ export class AppComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogComponent, {
       width:'30%'
+    }).afterClosed().subscribe(val=>{
+      if(val === 'save'){
+        this.getAllProducts();
+      }
     });
   }
 
@@ -70,6 +74,20 @@ export class AppComponent implements OnInit {
       width:'30%',
       data:row
     })
+  }
+
+  // con la fila directamente saca el id
+  deleteProduct(id:number){
+    this.api.deleteProduct(id)
+    .subscribe({
+      next:(res)=>{
+        alert("Product Deleted successfully");
+      },
+      error:()=> {
+        alert("Error while deleting the product!!");
+      }
+    })
+
   }
 
 

@@ -1,15 +1,6 @@
 {
   "productList": [
     {
-      "productName": "NARANJA",
-      "category": "Fruits",
-      "freshness": "Brand New",
-      "price": 100,
-      "comment": "Esto es una naranja\n",
-      "date": "2022-07-13T03:00:00.000Z",
-      "id": 1
-    },
-    {
       "productName": "MANZANA",
       "category": "Fruits",
       "freshness": "Brand New",
@@ -62,6 +53,15 @@
       "comment": "tomates",
       "date": "2022-07-28T03:00:00.000Z",
       "id": 7
+    },
+    {
+      "productName": "MOUSE",
+      "category": "Electronic",
+      "freshness": "Refurbished",
+      "price": 963,
+      "comment": "DESCRIPCION MOUSE",
+      "date": "2021-12-31T03:00:00.000Z",
+      "id": 8
     }
   ],
   "comments": [
